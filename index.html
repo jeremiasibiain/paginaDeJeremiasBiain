@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Gimnasio Titan · Iniciar sesión / Crear cuenta</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header class="hero">
+    <div class="overlay"></div>
+    <nav class="nav">
+      <div class="brand">🏋️‍♂️ Gimnasio <strong>Titan</strong></div>
+      <ul class="nav-links">
+        <li><a href="#" class="active">Inicio</a></li>
+        <li><a href="#beneficios">Beneficios</a></li>
+        <li><a href="#planes">Planes</a></li>
+      </ul>
+    </nav>
+    <div class="hero-content">
+      <h1>Entrená fuerte, viví mejor</h1>
+      <p>Creá tu cuenta o iniciá sesión para acceder a rutinas, registro de progresos y clases.</p>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="auth-card" id="auth">
+      
+      <input class="tab-radio" type="radio" name="tab" id="tab-login" checked>
+      <input class="tab-radio" type="radio" name="tab" id="tab-register">
+
+      <div class="tabs">
+        <label class="tab" for="tab-login">Ingresar</label>
+        <label class="tab" for="tab-register">Crear cuenta</label>
+      </div>
+
+      <div class="tab-panels">
+        <!-- LOGIN (envía a login.php) -->
+        <form class="panel" id="login" action="login.php" method="post" novalidate>
+          <div class="field">
+            <label for="loginEmail">Email</label>
+            <input id="loginEmail" name="email" type="email" placeholder="tu@correo.com" required>
+          </div>
+          <div class="field">
+            <label for="loginPassword">Contraseña</label>
+            <input id="loginPassword" name="password" type="password" placeholder="****" minlength="8" required>
+            <small class="muted">Mínimo 8 caracteres.</small>
+          </div>
+          <button class="primary" type="submit" aria-label="Ingresar a tu cuenta">Ingresar</button>
+          <p class="muted">¿Olvidaste tu contraseña? <span class="muted">Disponible con backend.</span></p>
+        </form>
+
+        <!-- REGISTRO (envía a registro.php) -->
+        <form class="panel" id="register" action="registro.php" method="post" novalidate>
+          <div class="grid-2">
+            <div class="field">
+              <label for="firstName">Nombre</label>
+              <input id="firstName" name="first" type="text" placeholder="Jeremías" required>
+            </div>
+            <div class="field">
+              <label for="lastName">Apellido</label>
+              <input id="lastName" name="last" type="text" placeholder="Biaiñ" required>
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="regEmail">Email</label>
+            <input id="regEmail" name="email" type="email" placeholder="tu@correo.com" required>
+          </div>
+
+          <div class="field">
+            <label for="regPassword">Contraseña</label>
+            <!-- Patrón: 8+ caracteres, al menos 1 mayúscula, 1 minúscula y 1 número -->
+            <input id="regPassword" name="password" type="password"
+                   placeholder="Mín. 8, mayús, minús y número"
+                   pattern="(?=^.{8,}$)(?=.[a-z])(?=.[A-Z])(?=.\\d).$"
+                   required>
+            <small class="muted">Usá mayúsculas, minúsculas y números.</small>
+          </div>
+
+          <label class="check">
+            <input type="checkbox" name="terms" required> Acepto los términos y condiciones
+          </label>
+
+          <button class="primary" type="submit">Crear cuenta</button>
+        </form>
+      </div>
+    </section>
+
+    <section id="beneficios" class="features">
+      <article>
+        <h3>Rutinas personalizadas</h3>
+        <p>Programas de fuerza e hipertrofia adaptados a tu nivel.</p>
+      </article>
+      <article>
+        <h3>Seguimiento de progreso</h3>
+        <p>Registrá tus marcas, fotos y medidas semana a semana.</p>
+      </article>
+      <article>
+        <h3>Clases y comunidad</h3>
+        <p>Accedé a clases guiadas y compartí logros con la comunidad.</p>
+      </article>
+    </section>
+
+    <section id="planes" class="pricing">
+      <div class="price-card">
+        <h4>Starter</h4>
+        <p class="price">$0</p>
+        <ul>
+          <li>Rutinas base</li>
+          <li>Registro simple</li>
+          <li>Soporte por email</li>
+        </ul>
+      </div>
+      <div class="price-card featured">
+        <h4>Pro</h4>
+        <p class="price">$9.99</p>
+        <ul>
+          <li>Rutinas avanzadas</li>
+          <li>Seguimiento completo</li>
+          <li>Clases en vivo</li>
+        </ul>
+      </div>
+      <div class="price-card">
+        <h4>Elite</h4>
+        <p class="price">$19.99</p>
+        <ul>
+          <li>Plan 1:1</li>
+          <li>Nutrición personalizada</li>
+          <li>Prioridad total</li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>© 2025 Gimnasio Titan. Hecho con 💪.</p>
+  </footer>
+</body>
+</html>
